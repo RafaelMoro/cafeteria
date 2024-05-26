@@ -8,7 +8,7 @@ function css(done) {
   // Compile SASS
   // Step 1: Identify file
   src(MAIN_SASS_ROUTE)
-    .pipe(sass()) // Step 2: Compile
+    .pipe(sass({ outputStyle: 'compressed' })) // Step 2: Compile
     .pipe(dest('build/css')) // Step 3: Save the .css
   
     done()
