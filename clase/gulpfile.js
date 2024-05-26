@@ -18,7 +18,8 @@ function css(done) {
 }
 // Watcher to compile from sass to css
 function dev() {
-  watch(MAIN_SASS_ROUTE, css)
+  watch('src/scss/**/*.scss', css)
+  // watch(MAIN_SASS_ROUTE, css)
 }
 
 exports.css = css
