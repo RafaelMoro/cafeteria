@@ -1,4 +1,4 @@
-const { src, dest, watch } = require('gulp')
+const { src, dest, watch, series, parallel } = require('gulp')
 // Have gulp-sass and sass in the same constant
 const sass = require('gulp-sass')(require('sass'))
 const postcss = require('gulp-postcss')
@@ -23,3 +23,8 @@ function dev() {
 
 exports.css = css
 exports.dev = dev
+exports.default = series(css, dev)
+// Series: It will execute the tasks in series, first css and then dev
+// exports.default = series(css, dev)
+// Paralell: It will execute all tasks at the same time.
+// exports.default = parallel(css,dev)
