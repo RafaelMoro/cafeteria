@@ -1,3 +1,6 @@
+// Old way to import sass modules
+// @import 'header/header'
+@use 'header/header';
 body {
   color: red;
 }
