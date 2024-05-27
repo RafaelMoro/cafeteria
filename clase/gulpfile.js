@@ -5,6 +5,7 @@ const postcss = require('gulp-postcss')
 const autoprefixer = require('autoprefixer')
 
 const imagemin = require('gulp-imagemin')
+const webp = require('gulp-webp')
 
 const MAIN_SASS_ROUTE = 'src/scss/app.scss'
 
@@ -26,6 +27,13 @@ function imagenes(done) {
   done()
 }
 
+function versionWebp() {
+  // If we use return, there is no need to use the done callback
+  return src('src/img/**/*.{png,jpg}')
+    .pipe(webp())
+    .pipe(dest('build/img'))
+}
+
 // Watcher to compile from sass to css
 function dev() {
   watch('src/scss/**/*.scss', css)
@@ -36,7 +44,8 @@ function dev() {
 exports.css = css
 exports.dev = dev
 exports.imagenes = imagenes
-exports.default = series(imagenes, css, dev)
+exports.versionWebp = versionWebp
+exports.default = series(imagenes, versionWebp, css, dev)
 // Series: It will execute the tasks in series, first css and then dev
 // exports.default = series(css, dev)
 // Paralell: It will execute all tasks at the same time.
