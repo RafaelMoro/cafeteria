@@ -16,15 +16,24 @@ function css(done) {
   
     done()
 }
+
+function imagenes(done) {
+  src('src/img/**/*')
+    .pipe(dest('build/img'))
+  done()
+}
+
 // Watcher to compile from sass to css
 function dev() {
   watch('src/scss/**/*.scss', css)
+  watch('src/img/**/*', imagenes)
   // watch(MAIN_SASS_ROUTE, css)
 }
 
 exports.css = css
 exports.dev = dev
-exports.default = series(css, dev)
+exports.imagenes = imagenes
+exports.default = series(imagenes, css, dev)
 // Series: It will execute the tasks in series, first css and then dev
 // exports.default = series(css, dev)
 // Paralell: It will execute all tasks at the same time.
