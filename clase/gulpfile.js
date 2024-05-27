@@ -10,7 +10,7 @@ function css(done) {
   // Compile SASS
   // Step 1: Identify file
   src(MAIN_SASS_ROUTE)
-    .pipe(sass({ outputStyle: 'compressed' })) // Step 2: Compile
+    .pipe(sass({ outputStyle: 'expanded' })) // Step 2: Compile
     .pipe(postcss([autoprefixer()])) // Step 2.1 
     .pipe(dest('build/css')) // Step 3: Save the .css
   

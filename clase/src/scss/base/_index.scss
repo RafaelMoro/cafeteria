@@ -1,0 +1,5 @@
+// funciona de indexador cuando se cargue la carpeta /base,
+// incluye estos archivos y los usa el que los llama
+@forward 'normalize';
+@forward 'variables';
+@forward 'globales';
