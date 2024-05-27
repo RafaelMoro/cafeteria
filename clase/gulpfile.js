@@ -6,6 +6,7 @@ const autoprefixer = require('autoprefixer')
 
 const imagemin = require('gulp-imagemin')
 const webp = require('gulp-webp')
+const avif = require('gulp-avif')
 
 const MAIN_SASS_ROUTE = 'src/scss/app.scss'
 
@@ -34,6 +35,16 @@ function versionWebp() {
     .pipe(dest('build/img'))
 }
 
+function versionAvif() {
+  const opts = {
+    quality: 50
+}
+  // If we use return, there is no need to use the done callback
+  return src('src/img/**/*.{png,jpg}')
+    .pipe(avif(opts))
+    .pipe(dest('build/img'))
+}
+
 // Watcher to compile from sass to css
 function dev() {
   watch('src/scss/**/*.scss', css)
@@ -45,6 +56,7 @@ exports.css = css
 exports.dev = dev
 exports.imagenes = imagenes
 exports.versionWebp = versionWebp
+exports.versionAvif = versionAvif
 exports.default = series(imagenes, versionWebp, css, dev)
 // Series: It will execute the tasks in series, first css and then dev
 // exports.default = series(css, dev)
