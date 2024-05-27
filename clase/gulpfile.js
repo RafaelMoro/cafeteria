@@ -4,6 +4,8 @@ const sass = require('gulp-sass')(require('sass'))
 const postcss = require('gulp-postcss')
 const autoprefixer = require('autoprefixer')
 
+const imagemin = require('gulp-imagemin')
+
 const MAIN_SASS_ROUTE = 'src/scss/app.scss'
 
 function css(done) {
@@ -19,6 +21,7 @@ function css(done) {
 
 function imagenes(done) {
   src('src/img/**/*')
+    .pipe(imagemin({ optimizationLevel: 3 }))
     .pipe(dest('build/img'))
   done()
 }
