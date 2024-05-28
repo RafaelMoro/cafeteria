@@ -1,8 +1,30 @@
-@mixin color {
-  color: black;
-  font-size: 4rem;
-  text-decoration: none;
+@use 'variables' as var;
+
+@mixin telefono {
+  @media (min-width: var.$telefono) {
+    // Inyecta todo lo que queramos en esa directiva
+    @content;
+  }
 }
+
+@mixin tablet {
+  @media (min-width: var.$tablet) {
+    // Inyecta todo lo que queramos en esa directiva
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: var.$desktop) {
+    // Inyecta todo lo que queramos en esa directiva
+    @content;
+  }
+}
+
+@mixin color {
+  background-color: red;
+}
+
 @mixin bgcolor($color) {
   background-color: $color;
 }

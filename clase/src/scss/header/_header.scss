@@ -1,9 +1,21 @@
 @use 'base/variables' as var;
-@use 'base/mixins';
+@use 'base/mixins' as mixin;
 
 .header {
   padding: 5rem 0;
   position: relative;
+
+  @include mixin.telefono {
+    padding: 4rem;
+  }
+
+  @include mixin.tablet {
+    padding: 3rem;
+  }
+
+  @include mixin.desktop {
+    padding: 2rem;
+  }
 
   &::before {
     content: '';
@@ -20,7 +32,6 @@
   // will position before the header::before
   .contenido-header {
     position: relative;
-    @include mixins.color;
   }
 }
 
