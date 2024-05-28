@@ -48,7 +48,7 @@ function versionAvif() {
 // Watcher to compile from sass to css
 function dev() {
   watch('src/scss/**/*.scss', css)
-  watch('src/img/**/*', imagenes)
+  // watch('src/img/**/*', imagenes)
   // watch(MAIN_SASS_ROUTE, css)
 }
 
@@ -57,7 +57,9 @@ exports.dev = dev
 exports.imagenes = imagenes
 exports.versionWebp = versionWebp
 exports.versionAvif = versionAvif
-exports.default = series(imagenes, versionWebp, css, dev)
+// exports.default = series(imagenes, versionWebp, css, dev)
+// Do not process images everytime it refreshes
+exports.default = series(css, dev)
 // Series: It will execute the tasks in series, first css and then dev
 // exports.default = series(css, dev)
 // Paralell: It will execute all tasks at the same time.

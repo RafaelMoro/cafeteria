@@ -1,5 +1,27 @@
-@use '../base';
+@use 'base/variables' as var;
 
 .header {
-  color: base.$negro;
+  padding: 5rem 0;
+  position: relative;
+
+  &::before {
+    content: '';
+    background-color: var.$negro;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    opacity: 0.6;
+  }
+
+  // This is the important class with position relative that
+  // will position before the header::before
+  .contenido-header {
+    position: relative;
+  }
+}
+
+.header-inicio {
+  background-image: url('../img/header_inicio.jpg');
 }
