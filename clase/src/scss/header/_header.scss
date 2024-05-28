@@ -1,4 +1,5 @@
 @use 'base/variables' as var;
+@use 'base/mixins';
 
 .header {
   padding: 5rem 0;
@@ -19,6 +20,7 @@
   // will position before the header::before
   .contenido-header {
     position: relative;
+    @include mixins.color;
   }
 }
 
