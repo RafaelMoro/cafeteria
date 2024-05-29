@@ -3,7 +3,7 @@
 
 .contenido-principal {
   background-color: var.$blanco;
-  padding: 2rem;
+  padding: 5rem 2rem;
 
   @include mixin.tablet { 
     padding: 10rem;
