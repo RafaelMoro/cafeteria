@@ -30,6 +30,18 @@ h2 {
     background-size: 10rem;
   }
 }
+.heading-blanco {
+  @extend h2;
+  color: var.$blanco;
+
+  span {
+    color: var.$blanco;
+  }
+
+  &::after {
+    display: none;
+  }
+}
 h3 {
   font-size: 3.2rem;
 }
