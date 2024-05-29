@@ -1,5 +1,35 @@
-@use '../base';
+@use 'base/mixins' as mixin;
+@use 'base/variables' as var;
 
-.navegacion {
-  color: yellow;
+.nav-principal {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5rem;
+
+  @include mixin.tablet { 
+    flex-direction: row;
+    gap: 2rem;
+    margin-top: 0;
+  }
+
+  a {
+    text-align: center;
+    color: var.$blanco;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    @include mixin.tablet { 
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      color: var.$secundario;
+    }
+
+    &.activo {
+      color: var.$secundario;
+    }
+  }
+  
 }
