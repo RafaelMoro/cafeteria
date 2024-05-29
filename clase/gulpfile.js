@@ -23,7 +23,8 @@ function css(done) {
 
 function imagenes(done) {
   src('src/img/**/*')
-    .pipe(imagemin({ optimizationLevel: 3 }))
+  // Image min is generating broken images
+    // .pipe(imagemin({ optimizationLevel: 3 }))
     .pipe(dest('build/img'))
   done()
 }
