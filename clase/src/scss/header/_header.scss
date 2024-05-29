@@ -5,6 +5,10 @@
   padding: 5rem 0;
   position: relative;
 
+  @include mixin.tablet { 
+    min-height: 70rem;
+  }
+
   @include mixin.telefono {
     padding: 4rem;
   }
@@ -32,6 +36,17 @@
   // will position before the header::before
   .contenido-header {
     position: relative;
+
+    h1 {
+      text-align: center;
+      color: var.$blanco;
+      text-transform: uppercase;
+      margin-top: 5rem;
+
+      @include mixin.tablet { 
+        margin-top: 10rem;
+      }
+    }
   }
 }
 
