@@ -3,6 +3,8 @@ const { src, dest, watch, series, parallel } = require('gulp')
 const sass = require('gulp-sass')(require('sass'))
 const postcss = require('gulp-postcss')
 const autoprefixer = require('autoprefixer')
+// Tool that let you know in what SASS file is the style you're looking for.
+const sourcemaps = require('gulp-sourcemaps')
 
 const imagemin = require('gulp-imagemin')
 const webp = require('gulp-webp')
@@ -14,8 +16,10 @@ function css(done) {
   // Compile SASS
   // Step 1: Identify file
   src(MAIN_SASS_ROUTE)
+    .pipe(sourcemaps.init())
     .pipe(sass({ outputStyle: 'expanded' })) // Step 2: Compile
     .pipe(postcss([autoprefixer()])) // Step 2.1 
+    .pipe(sourcemaps.write('.'))
     .pipe(dest('build/css')) // Step 3: Save the .css
   
     done()
